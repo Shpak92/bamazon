@@ -45,10 +45,59 @@ connection.connect(function(err) {
         console.log(results)
         connection.end();
     }
-    
     )
-    
 };
+  // function which prompts the user for what action they should take
+function userInput() {
+  inquirer
+    .prompt({
+      name: "itemPurchase",
+      type: "list",
+      message: "Which Item are you interested in purchasing?",
+      choices: ["1", "2", "3","4","5","6","7","8","9","10"]
+    })
+    .then(function(answer) {
+      // based on their answer, which item are they looking to purchase
+      if (answer.itemPurchase === "1") {
+        purchaseItem();
+      }
+      else if(answer.itemPurchase === "2") {
+        purchaseItem();
+      } 
+      else if(answer.itemPurchase === "3") {
+        purchaseItem();
+      } 
+      else if(answer.itemPurchase === "4") {
+        purchaseItem();
+      } 
+      else if(answer.itemPurchase === "5") {
+        purchaseItem();
+      } 
+      else if(answer.itemPurchase === "6") {
+        purchaseItem();
+      } 
+      else if(answer.itemPurchase === "7") {
+        purchaseItem();
+      } 
+      else if(answer.itemPurchase === "8") {
+        purchaseItem();
+      } 
+      else if(answer.itemPurchase === "9") {
+        purchaseItem();
+      } 
+      else if(answer.itemPurchase === "10") {
+        purchaseItem();
+      } 
+      else{
+        connection.end();
+      }
+    });
+}
+function purchaseItem(){
+  console.log("You're Not Done Yet!");
+}
+
+
 
 
 
