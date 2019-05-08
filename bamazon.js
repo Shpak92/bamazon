@@ -55,8 +55,21 @@ function userInput() {
       type: "list",
       message: "Which Item are you interested in purchasing?",
       choices: ["1", "2", "3","4","5","6","7","8","9","10"]
-    })
-    .then(function(answer) {
+    },
+    {
+      name: "quanityPurchased",
+      type: "input",
+      message: "How many items do you want to purchase?",
+      validate: function(input){
+        if(isNaN(input) = false){
+          return true;
+        }
+        else{
+          return false;
+        }
+        
+      }
+    }).then(function(answer) {
       // based on their answer, which item are they looking to purchase
       if (answer.itemPurchase === "1") {
         purchaseItem();
@@ -94,11 +107,7 @@ function userInput() {
     });
 }
 function purchaseItem(){
-  console.log("You're Not Done Yet!");
+  //Pass through the ID and Quananity Purchased 
 }
+    
 
-
-
-
-
-  
