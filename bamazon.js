@@ -44,6 +44,7 @@ connection.connect(function(err) {
             console.log(err);
             return;
         }
+       
         console.log(results)
     }
     )
