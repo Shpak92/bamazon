@@ -48,7 +48,27 @@ connection.connect(function(err) {
     }
     )
 };
-  // function which prompts the user for what action they should take
+//Asking the user if they want to continue shopping variable
+let continueShopping = function(){
+  inquirer
+    .prompt({
+      name: "continue",
+      type: "list",
+      message: "Would you like to continue Shopping",
+      choices: ["Yes","NO"]
+    }).then(function(answer) {
+      // based on their answer, either call the bid or the post functions
+      if (answer.continue === "Yes") {
+        userInput();
+      }
+      else{
+        console.log("Thank you for shopping! Come Back!")
+        connection.end();
+      }
+    });
+ 
+}
+// function which prompts the user for what action they should take
 let userInput = function () {
   //Asking what Item to be purchased
   inquirer
@@ -98,7 +118,10 @@ let userInput = function () {
               function(error){
                 if (error) throw err;
                 console.log("You have succesfully purchased your Item!");
-                userInput(); 
+                console.log("You have purchased ID # " +idChoice);
+                console.log("With a quanity of: " +quantity);
+
+                continueShopping(); 
               }
             );
           }
